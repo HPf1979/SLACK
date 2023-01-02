@@ -1,0 +1,50 @@
+<div class="chatroom">
+  <header class="chatroom-header">
+    <h4>my channel!</h4>
+    <button (click)="logout()" class="logout-button">Logout</button>
+  </header>
+
+  <ul class="messages">
+    <li class="massage">
+      <div class="avatar">
+        <img src="https://placekitten.com/40/40?image=1" alt="" />
+      </div>
+      <div class="message-metadata">
+        <span class="user-name">Herlina Pfeiffer</span>
+        <span class="timestamp">12/12/2017</span>
+        <div class="text">Hello I am a message</div>
+      </div>
+    </li>
+
+    <li class="massage">
+      <div class="avatar">
+        <img src="https://placekitten.com/40/40?image=1" alt="" />
+      </div>
+      <div class="message-metadata">
+        <span class="user-name">Herlina Pfeiffer</span>
+        <span class="timestamp">12/12/2017</span>
+        <div class="text">Hello I am a message</div>
+      </div>
+    </li>
+
+    <li class="massage">
+      <div class="avatar">
+        <img src="https://placekitten.com/40/40?image=1" alt="" />
+      </div>
+      <div class="message-metadata">
+        <span class="user-name">Herlina Pfeiffer</span>
+        <span class="timestamp">12/12/2017</span>
+        <div class="text">Hello I am a message</div>
+      </div>
+    </li>
+  </ul>
+
+  <div class="message-input-container">
+    <input
+      type="text"
+      placeholder="Please enter a message"
+      #message
+      (keyup.enter)="onAddMessage(message.value); message.value = ''"
+    />
+  </div>
+</div>

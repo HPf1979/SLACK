@@ -1,0 +1,11 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* Importing Bootstrap SCSS file. */
+@import "~bootstrap/dist/css/bootstrap.min.css";
+
+body {
+  font-family: "Lato", sans-serif;
+  overflow: hidden;
+  height: 100%;
+  background-color: #fff;
+}
