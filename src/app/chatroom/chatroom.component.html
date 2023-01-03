@@ -5,7 +5,22 @@
   </header>
 
   <ul class="messages">
-    <li class="massage">
+    <li *ngFor="let message of allMessages" class="massage">
+      <div class="avatar">
+        <img src="https://placekitten.com/40/40?image=1" alt="" />
+      </div>
+      <div class="message-metadata">
+        <span class="user-name">Herlina Pfeiffer</span>
+        <span class="timestamp">{{
+          message.timestamp
+            .toDate()
+            .toLocaleString("en-GB", { timeZone: "UTC" })
+        }}</span>
+        <div class="text">{{ message.message }}</div>
+      </div>
+    </li>
+
+    <!--     <li class="massage">
       <div class="avatar">
         <img src="https://placekitten.com/40/40?image=1" alt="" />
       </div>
@@ -25,26 +40,14 @@
         <span class="timestamp">12/12/2017</span>
         <div class="text">Hello I am a message</div>
       </div>
-    </li>
-
-    <li class="massage">
-      <div class="avatar">
-        <img src="https://placekitten.com/40/40?image=1" alt="" />
-      </div>
-      <div class="message-metadata">
-        <span class="user-name">Herlina Pfeiffer</span>
-        <span class="timestamp">12/12/2017</span>
-        <div class="text">Hello I am a message</div>
-      </div>
-    </li>
+    </li>-->
   </ul>
 
   <div class="message-input-container">
     <input
-      type="text"
+      [(ngModel)]="message"
       placeholder="Please enter a message"
-      #message
-      (keyup.enter)="onAddMessage(message.value); message.value = ''"
+      (keyup.enter)="onAddMessage()"
     />
   </div>
 </div>
