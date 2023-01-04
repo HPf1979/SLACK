@@ -31,12 +31,11 @@ export class ChatroomComponent implements OnInit {
       .valueChanges()
       .subscribe((changes: any) => {
         console.log('Received changes from DB', changes);
-        this.allMessages = changes;
-        console.log(
-          changes[0].timestamp
-            .toDate()
-            .toLocaleString('en-GB', { timeZone: 'UTC' })
-        );
+        this.allMessages = changes.sort((mess1: any, mess2: any) => {
+          // neu nachrichen werden am Ende gezeigt
+          return mess1.timestamp - mess2.timestamp;
+        });
+        console.log();
       });
   }
   logout() {
