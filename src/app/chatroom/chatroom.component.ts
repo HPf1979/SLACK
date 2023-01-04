@@ -29,9 +29,9 @@ export class ChatroomComponent implements OnInit {
     this.firestore
       .collection('messages')
       .valueChanges()
-      .subscribe((changes: any) => {
-        console.log('Received changes from DB', changes);
-        this.allMessages = changes.sort((mess1: any, mess2: any) => {
+      .subscribe((messages: any) => {
+        console.log('Received messages from DB', messages);
+        this.allMessages = messages.sort((mess1: any, mess2: any) => {
           // neu nachrichen werden am Ende gezeigt
           return mess1.timestamp - mess2.timestamp;
         });
@@ -45,7 +45,7 @@ export class ChatroomComponent implements OnInit {
   }
 
   onAddMessage() {
-    this.chat.message = this.message;
+    this.chat.message = this.message; // message from DB to JSON chat.message
     this.chat.timestamp = new Date();
 
     this.firestore

@@ -8,7 +8,7 @@ import { ChatroomComponent } from './chatroom/chatroom.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
-import { ChannelComponent } from './channel/channel.component';
+import { Channelcomponent } from './channel/channel.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { provideAuth, getAuth } from '@angular/fire/auth';
 
@@ -18,7 +18,6 @@ import { AuthService } from './auth.service';
 import { AuthGuardService } from './auth-guard.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +25,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ToolbarComponent,
     HomeComponent,
     LoginComponent,
-    ChannelComponent,
+    Channelcomponent,
   ],
   imports: [
     BrowserModule,

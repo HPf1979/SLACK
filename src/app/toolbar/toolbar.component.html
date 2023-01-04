@@ -4,13 +4,12 @@
 
   <h4 class="category-header">
     Channels
-    <span class="create-channel-button">+</span>
+    <span class="create-channel-button" routerLink="/channel">+</span>
   </h4>
 
   <ul class="channels">
-    <li class="channel">test 1</li>
-    <li class="channel">test 2</li>
-    <li class="channel">test 3</li>
-    <li class="channel">test 4</li>
+    <li *ngFor="let channel of channelArray" class="channel">
+      {{ channel.channelName }}
+    </li>
   </ul>
 </div>
