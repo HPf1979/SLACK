@@ -8,7 +8,11 @@
   </h4>
 
   <ul class="channels">
-    <li *ngFor="let channel of channelArray" class="channel">
+    <li
+      *ngFor="let channel of channelArray"
+      class="channel"
+      (click)="onChannelClick()"
+    >
       {{ channel.channelName }}
     </li>
   </ul>
