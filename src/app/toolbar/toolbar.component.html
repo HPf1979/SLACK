@@ -11,7 +11,7 @@
     <li
       *ngFor="let channel of channelArray"
       class="channel"
-      (click)="onChannelClick()"
+      (click)="onChannelClick(channel)"
     >
       {{ channel.channelName }}
     </li>

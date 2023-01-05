@@ -3,6 +3,15 @@ import { AngularFireDatabase } from '@angular/fire/compat/database';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Channel } from '../models/channel.class';
 import { ToolbarService } from './toolbar.service';
+import {
+  addDoc,
+  collection,
+  doc,
+  setDoc,
+  getFirestore,
+} from 'firebase/firestore';
+import { Chat } from '../models/chat.class';
+import * as firebase from 'firebase/compat';
 
 @Component({
   selector: 'app-toolbar',
@@ -13,8 +22,13 @@ export class ToolbarComponent implements OnInit {
   channelArray: any = [];
   allMessages = [];
 
+  chat: Chat = new Chat();
+  message: string;
+  timestamp: Date;
+
+  channel: Channel;
+
   constructor(
-    private db: AngularFireDatabase,
     private firestore: AngularFirestore,
     private toolbarService: ToolbarService
   ) {}
@@ -32,17 +46,7 @@ export class ToolbarComponent implements OnInit {
       });
   }
 
-  onChannelClick() {
-    this.firestore
-      .collection('messages')
-      .valueChanges()
-      .subscribe((messages: any) => {
-        console.log('Received messages from DB for 1 channel', messages);
-        this.allMessages = messages.sort((mess1: any, mess2: any) => {
-          // neu nachrichen werden am Ende gezeigt
-          return mess1.timestamp - mess2.timestamp;
-        });
-        console.log();
-      });
+  onChannelClick(channel: any) {
+    console.log(channel.channelName);
   }
 }

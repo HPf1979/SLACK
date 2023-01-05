@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { Channelcomponent } from './channel/channel.component';
+import { ChatroomComponent } from './chatroom/chatroom.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 

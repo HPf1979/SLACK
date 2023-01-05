@@ -17,6 +17,7 @@ import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 import { AuthService } from './auth.service';
 import { AuthGuardService } from './auth-guard.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ToolbarService } from './toolbar/toolbar.service';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     provideFirestore(() => getFirestore()),
     NgbModule,
   ],
-  providers: [AuthService, AuthGuardService],
+  providers: [AuthService, AuthGuardService, ToolbarService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
