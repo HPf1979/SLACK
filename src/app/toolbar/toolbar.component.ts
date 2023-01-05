@@ -12,6 +12,7 @@ import {
 } from 'firebase/firestore';
 import { Chat } from '../models/chat.class';
 import * as firebase from 'firebase/compat';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-toolbar',
@@ -19,6 +20,7 @@ import * as firebase from 'firebase/compat';
   styleUrls: ['./toolbar.component.scss'],
 })
 export class ToolbarComponent implements OnInit {
+  [x: string]: any;
   channelArray: any = [];
   allMessages = [];
 
@@ -30,7 +32,8 @@ export class ToolbarComponent implements OnInit {
 
   constructor(
     private firestore: AngularFirestore,
-    private toolbarService: ToolbarService
+    private toolbarService: ToolbarService,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -47,6 +50,8 @@ export class ToolbarComponent implements OnInit {
   }
 
   onChannelClick(channel: any) {
-    console.log(channel.channelName);
+    console.log(channel.channelName, channel.customIdName);
+
+    this.router.navigate(['/channel', channel.customIdName]);
   }
 }
